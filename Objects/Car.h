@@ -1,22 +1,24 @@
 #ifndef CAR_H
 #define CAR_H
 
-// #include <string.h>
+#include "Street.h"
+#include <queue>
 using namespace std;
-
 
 class Car
 {
 private:
-    /* data */
     int id, speed = 1;
-    // String[] path;
+    queue<Street> path;
+    // running variables
+    Street currentStreet;
+    int currentStreetTime, totalDrivingTime, totalTimeatRedLight;
 
 public:
-    Car(/* args */);
+    Car();
+    Car(int a_id, queue<Street> a_path);
     ~Car();
+    void MoveToNextStreet();
 };
-
-
 
 #endif
