@@ -13,15 +13,20 @@ using namespace std;
 class Simulation
 {
 private:
-    vector<Intersection> intersections;
-    vector<Car> cars;
-    vector<Street> streets;
-    map<string,Street> nameToStreet;
+    vector<Intersection*> intersections;
+    vector<Car*> cars;
+    vector<Street*> streets;
+    map<string,Street*> nameToStreet;
+    vector<vector<int>> state;//of traffic lights
 
-    int simulationTime;
+    int simulationTime, currentTime;
 public:
-    Simulation(/* args */);
+    Simulation(int a_simulationTime);
     ~Simulation();
+    void Start(vector<vector<int>> a_state);
+    void Update();
+    void ParseInput();
+    int FitnessFunction(vector<vector<int>> a_state);
 };
 
 #endif

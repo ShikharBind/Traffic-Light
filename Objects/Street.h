@@ -6,23 +6,30 @@
 #include <queue>
 
 using namespace std;
-
+// class Car;
 
 class Street
 {
 private:
+    //config
     int id, startIntersection, endIntersection;
     int length;
-    bool isSignalGreen;
     string name;
-    queue<Car> carsQueue;
+    //field
+    int isSignalGreen;
+    queue<Car*> carsQueue;
 
 public:
     Street();
     Street(int a_id, int a_start, int a_end, int a_length, string a_name);
     ~Street();
-    void AddToQueue(Car a_car);
-    Car ExitFromStreet();
+    void Start();
+    void Update();
+    void AddToQueue(Car * a_car);
+    void ExitFromStreet();
+    int GetLength();
+    void SetSignalState(int a_isSignalGreen);
+    int GetSignalState();
 };
 
 
